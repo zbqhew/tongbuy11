@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!--把下面代码加到<head>与</head>之间-->
+<style type="text/css">
+body{padding:0px;background:#fff;margin:0px auto;font:12px '宋体';color:#333;text-align:center;}
+div{border-top-width:0px;padding-right:0px;padding-left:0px;border-left-width:0px;border-bottom-width:0px;padding-bottom:0px;margin:0px;padding-top:0px;border-right-width:0px;}
+img{border-top-width:0px;padding-right:0px;padding-left:0px;border-left-width:0px;border-bottom-width:0px;padding-bottom:0px;margin:0px;padding-top:0px;border-right-width:0px;}
+#focus{width:488px;position:relative;height:200px;}
+#au{filter:progid:dximagetransform.microsoft.fade (duration=0.5,overlap=1.0);width:488px;height:200px;}
+#no{border-top:#725f4a 1px solid;margin-top:0px;background:#000;filter:alpha(opacity=40);left:-2px;width:488px;line-height:24px;position:absolute;top:192px;height:66px;text-align:center;-moz-opacity:0.4;opacity:0.4;}
+#conau{margin-top:0px;font-weight:normal;font-size:18px;left:7px;width:528px;color:#fff;font-family:georgia,"times new roman",times,serif;position:absolute;top:199px;height:47px;text-align:left;}
+#conau a{color:#fff;}
+#conau a:hover{color:#fff;}
+.lunbo{right:15px;width:138px;position:absolute;top:174px;height:21px;}
+.lunbo table{height:21px;}
+.lunbo td{font-weight:bold;color:#000;line-height:12px;}
+.lunbo .bg{ padding:0px;background-image:url(test/pic_2.gif);width:18px;line-height:21px;height:21px;text-align:center;color:#030100;}
+.lunbo .active{ padding:0px;background-image:url(test/pic_1.gif);width:18px;line-height:21px;height:21px;text-align:center;color:#a8471c;}
+</style>
+</head>
+<body>
+<!--把下面代码加到<body>与</body>之间-->
+<div id="focus">
+ <div id="au">
+  <div style="display:block;"><a href="http://www.CsrCode.cn" target="_blank"><img src="test/m01.jpg" width="488" height="200"></a></div>
+  <div style="display:none;"><a href="http://www.33567.cn" target="_blank"><img src="test/m02.jpg" width="488" height="200"></a></div>
+  <div style="display:none;"><a href="http://www.7caidy.com" target="_blank"><img src="test/m03.jpg" width="488" height="200"></a></div>
+  <div style="display:none;"><a href="http://ww.33567.cn" target="_blank"><img src="test/m04.jpg" width="488" height="200"></a></div>
+  <div style="display:none;"><a href="http://changshi.csrcode.cn" target="_blank"><img src="test/m05.jpg" width="488" height="200"></a></div>
+  <div style="display:none;"><a href="http://wen.33567.cn" target="_blank"><img src="test/m06.jpg" width="488" height="200"></a></div>
+  <div id="no" style="display:none;"></div>
+  <div class="lunbo">
+   <table border="0" cellPadding="0" cellSpacing="0" align="right">
+    <tr>
+     <td class="active" id="t0" onmouseover="Mea(0);clearAuto();" onmouseout="setAuto();">1</td>
+     <td width="6"></td>
+     <td class="bg" id="t1" onmouseover="Mea(1);clearAuto();" onmouseout="setAuto();">2</td>
+     <td width="6"></td>
+     <td class="bg" id="t2" onmouseover="Mea(2);clearAuto();" onmouseout="setAuto();">3</td>
+     <td width="6"></td>
+     <td class="bg" id="t3" onmouseover="Mea(3);clearAuto();" onmouseout="setAuto();">4</td>
+     <td width="6"></td>
+     <td class="bg" id="t4" onmouseover="Mea(4);clearAuto();" onmouseout="setAuto();">5</td>
+     <td width="6"></td>
+     <td class="bg" id="t5" onmouseover="Mea(5);clearAuto();" onmouseout="setAuto();">6</td>
+    </tr>
+   </table>
+  </div>
+  <div id="conau">
+  <div> </div>
+  <div style="display:none;"></div>
+  <div style="display:none;"></div>
+  <div style="display:none;"></div>
+  <div style="display:none;"></div>
+  <div style="display:none;"></div>
+ </div>
+</div>
+<script type="text/javascript"> 
+var n=0;
+function Mea(value){
+ n=value;
+ setBg(value);
+ plays(value);
+ conaus(n);
+}
+function setBg(value){
+ for(var i=0;i<6;i++)
+ document.getElementById("t"+i+"").className="bg";
+ document.getElementById("t"+value+"").className="active";
+} 
+function plays(value){
+ try{
+  with (au){
+   filters[0].Apply();
+   for(i=0;i<6;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+   filters[0].play();   
+  }
+ }
+ catch(e){
+  var d = document.getElementById("au").getElementsByTagName("div");
+  for(i=0;i<6;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+ }
+}
+function conaus(value){
+ try{
+  with (conau){
+   for(i=0;i<6;i++)i==value?children[i].style.display="block":children[i].style.display="none"; 
+  }
+ }
+ catch(e){
+  var d = document.getElementById("conau").getElementsByTagName("div");
+  for(i=0;i<6;i++)i==value?d[i].style.display="block":d[i].style.display="none"; 
+ }
+}
+function clearAuto(){clearInterval(autoStart)}
+function setAuto(){autoStart=setInterval("auto(n)", 4000)}
+function auto(){
+ n++;
+ if(n>5)n=0;
+ Mea(n);
+ conaus(n);
+} 
+setAuto(); 
+</script>
+</body>
+</html>
+
